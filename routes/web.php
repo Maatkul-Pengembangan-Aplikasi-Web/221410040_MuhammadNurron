@@ -21,6 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/prodi/save', [ProdiController::class, 'save'])->name('prodi/save');
     Route::get('/prodi/edit/{id}', [ProdiController::class, 'edit'])->name('prodi/edit');
     Route::put('/prodi/edit/{id}', [ProdiController::class, 'update'])->name('prodi/update');
+    Route::delete('/prodi/delete/{id}', [ProdiController::class, 'delete'])->name('prodi/delete');
 });
 
 require __DIR__.'/auth.php';

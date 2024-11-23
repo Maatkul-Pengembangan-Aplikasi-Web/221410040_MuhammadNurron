@@ -17,8 +17,9 @@
                         @endif
                         <div class="ml-auto d-flex">
                             <a href="{{ route('prodi/create') }}" class="btn btn-primary mr-2">Tambah Program Studi</a>
-                            <form action="" method="GET" class="d-flex">
-                                <input type="text" name="search" class="form-control" placeholder="Pencarian">
+                            <form action="{{ route('/prodi') }}" method="GET" class="d-flex">
+                                <input type="text" name="search" class="form-control" placeholder="Pencarian"
+                                    value="{{ old('search', $search) }}">
                                 <button class="btn btn-primary ml-2" type="submit">
                                     <i class="bi bi-search"></i>
                                 </button>
@@ -40,8 +41,14 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $prodi->nama }}</td>
                                     <td>
-                                        <a href="#"class="btn btn-secondary">Edit</a>
-                                        <a href="#"class="btn btn-danger">Hapus</a>
+                                        <a
+                                            href="{{ route('prodi/edit', $prodi->id) }}"class="btn btn-secondary">Edit</a>
+                                        <form action="{{ route('prodi/delete', $prodi->id) }}" method="POST"
+                                            class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger">Hapus</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
@@ -52,4 +59,4 @@
             </div>
         </div>
     </div>
-    </x-app-layout>
+</x-app-layout>
