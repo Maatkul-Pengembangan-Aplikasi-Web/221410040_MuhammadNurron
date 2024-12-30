@@ -14,7 +14,7 @@ class MahasiswaController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
-        $mahasiswas = Mahasiswa::where('nama', 'like', '%' . $search . '%')->orderBy('id', 'desc')->get();
+        $mahasiswas = Mahasiswa::where('prodi', 'like', '%' . $search . '%')->orderBy('id', 'desc')->get();
         return view('mahasiswa.index', compact('mahasiswas', 'search'));
     }
 
@@ -54,14 +54,6 @@ class MahasiswaController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      */
     public function show(Mahasiswa $mahasiswa)
@@ -91,7 +83,7 @@ class MahasiswaController extends Controller
             'nama' => 'required',
             'npm' => 'required|numeric',
             'prodi' => 'required',
-            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
         ]);
 
         // Proses upload gambar baru

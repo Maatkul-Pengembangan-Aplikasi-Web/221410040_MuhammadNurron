@@ -19,7 +19,7 @@
                         <div class="row mb-3">
                             <div class="col"> Nama Lengkap
                                 <input type="text" name="nama" class="form-control"
-                                    placeholder="Aa Herdi Prayoga">
+                                    placeholder="Muhammad Nurron">
                                 @error('nama')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -27,7 +27,7 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col"> NPM
-                                <input type="number" name="npm" class="form-control" placeholder="191410001">
+                                <input type="number" name="npm" class="form-control" placeholder="221410040">
                                 @error('npm')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
